@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sri Rajarajeshwari Beauty Parlour</title>
+  <style>
+    body { font-family: Arial; margin: 0; }
+
+    .container { padding: 20px; }
+
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .menu button {
+      padding: 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .section { display: none; }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    img { width: 150px; }
+
+    .product {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Sri Rajarajeshwari Beauty Parlour & Ladies Emporium</h1>
+
+<!-- MENU -->
+<div class="menu">
+  <button onclick="showSection('parlour')">Beauty Parlour</button>
+  <button onclick="showSection('shop')">Ladies Emporium</button>
+</div>
+
+<!-- BEAUTY PARLOUR -->
+<div id="parlour" class="section">
+
+<h2>Beauty Services</h2>
+
+<div class="row">
+  <div>Threading</div>
+  <div>₹50</div>
+  <button onclick="bookService('Threading',50)">Book</button>
+</div>
+
+<div class="row">
+  <div>Facial</div>
+  <div>₹500</div>
+  <button onclick="bookService('Facial',500)">Book</button>
+</div>
+
+<div class="row">
+  <div>Haircut</div>
+  <div>₹300</div>
+  <button onclick="bookService('Haircut',300)">Book</button>
+</div>
+
+</div>
+
+<!-- SHOP -->
+<div id="shop" class="section">
+
+<h2>Products</h2>
+
+<div class="product">
+  <img src="https://via.placeholder.com/150">
+  <div>
+    <h3>Red Saree</h3>
+    <p>Price: ₹1200</p>
+    <button onclick="orderProduct('Red Saree',1200)">Order</button>
+  </div>
+</div>
+
+<div class="product">
+  <img src="https://via.placeholder.com/150">
+  <div>
+    <h3>Kurti</h3>
+    <p>Price: ₹800</p>
+    <button onclick="orderProduct('Kurti',800)">Order</button>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showSection(section) {
+  document.getElementById('parlour').style.display = 'none';
+  document.getElementById('shop').style.display = 'none';
+
+  document.getElementById(section).style.display = 'block';
+}
+
+function orderProduct(name, price) {
+  let msg = `Hi, I want to order:\nProduct: ${name}\nPrice: ₹${price}`;
+  let phone = "9849492985";
+
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
+}
+
+function bookService(name, price) {
+  let msg = `Hi, I want to book:\nService: ${name}\nPrice: ₹${price}`;
+  let phone = "9849492985";
+
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`);
+}
+
+</script>
+
+</body>
+</html>
